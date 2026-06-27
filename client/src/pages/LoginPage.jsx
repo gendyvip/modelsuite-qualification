@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import API from '../api/axios';
+import PasswordInput from '../components/ui/PasswordInput';
 
 const Logo = () => (
   <img src="/modelsuite-talents.png" alt="ModelSuite Talents Logo" className="w-80 h-auto object-contain mx-auto block hover:scale-105 transition-transform duration-300" />
@@ -49,7 +50,7 @@ const LoginPage = () => {
 
           <div className="flex flex-col gap-2 group">
             <label className={labelCls} htmlFor="password">Password</label>
-            <input id="password" type="password" placeholder="••••••••"
+            <PasswordInput id="password" placeholder="••••••••"
               value={password} onChange={(e) => setPassword(e.target.value)} required className={inputCls} />
           </div>
 
