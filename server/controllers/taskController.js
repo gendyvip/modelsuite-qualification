@@ -1,6 +1,14 @@
 ﻿const Task = require('../models/Task');
 const Submission = require('../models/Submission');
 
+const canAccessTask = (task, user) => {
+  if (user.role === 'Admin') return true;
+  if (task.status === 'Open') return true;
+
+  const assignedToId = task.assignedTo?._id ?? task.assignedTo;
+  return assignedToId && assignedToId.toString() === user._id.toString();
+};
+
 // @desc  Get all tasks
 // @route GET /api/tasks
 // @access Admin
@@ -19,15 +27,18 @@ const getAllTasks = async (req, res) => {
 
 // @desc  Get single task
 // @route GET /api/tasks/:id
-// @access Admin
+// @access Admin (any task) | Talent (Open tasks or tasks assigned to them)
 const getTaskById = async (req, res) => {
   try {
-    // — will throw a CastError from Mongoose instead of a clean 400
     const task = await Task.findById(req.params.id)
       .populate('assignedTo', 'name email')
       .populate('createdBy', 'name');
 
     if (!task) return res.status(404).json({ message: 'Task not found' });
+
+    if (!canAccessTask(task, req.user)) {
+      return res.status(403).json({ message: 'Access denied: task not available to you' });
+    }
 
     res.json(task);
   } catch (error) {
