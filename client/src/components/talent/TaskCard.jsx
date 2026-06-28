@@ -1,5 +1,6 @@
 ﻿import { claimTask } from '../../api/talent';
 import { formatDate } from '../../utils/formatDate';
+import RichTextContent from '../ui/RichTextContent';
 
 const STATUS_CLASS = {
   Open:      'status-badge-Open',
@@ -33,9 +34,8 @@ const TaskCard = ({ task, showClaimButton = false, onClaimed }) => {
         )}
       </div>
 
-      
       {task.description && (
-        <p className="text-[13px] text-text-muted leading-relaxed">{task.description}</p>
+        <RichTextContent html={task.description} className="text-[13px] text-text-muted leading-relaxed" />
       )}
 
       {/* Meta row */}

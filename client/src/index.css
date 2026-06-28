@@ -477,3 +477,97 @@ input, select, textarea {
   color: #EF4444;
   background: rgba(239,68,68,0.1);
 }
+
+/* ─────────────────────────────────────────
+   Rich Text Editor (Quill)
+───────────────────────────────────────── */
+.rich-text-editor .ql-toolbar.ql-snow {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  background: rgba(255, 255, 255, 0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+.rich-text-editor .ql-container.ql-snow {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0 0 10px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #F0F0F0;
+  min-height: 120px;
+}
+
+.rich-text-editor .ql-editor {
+  min-height: 120px;
+  padding: 10px 14px;
+}
+
+.rich-text-editor .ql-editor.ql-blank::before {
+  color: #4e4a6e;
+  font-style: normal;
+}
+
+.rich-text-editor .ql-snow .ql-stroke {
+  stroke: #6B7280;
+}
+
+.rich-text-editor .ql-snow .ql-fill {
+  fill: #6B7280;
+}
+
+.rich-text-editor .ql-snow .ql-picker {
+  color: #6B7280;
+}
+
+.rich-text-editor .ql-snow .ql-picker-options {
+  background: #0D0D0D;
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.rich-text-editor .ql-snow .ql-picker-item:hover {
+  color: #F0F0F0;
+}
+
+.rich-text-editor .ql-snow.ql-toolbar button:hover,
+.rich-text-editor .ql-snow .ql-toolbar button:hover,
+.rich-text-editor .ql-snow.ql-toolbar button.ql-active,
+.rich-text-editor .ql-snow .ql-toolbar button.ql-active {
+  color: #3B82F6;
+}
+
+.rich-text-editor .ql-snow.ql-toolbar button:hover .ql-stroke,
+.rich-text-editor .ql-snow .ql-toolbar button.ql-active .ql-stroke {
+  stroke: #3B82F6;
+}
+
+.rich-text-content {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.rich-text-content p {
+  margin: 0 0 0.5em;
+}
+
+.rich-text-content p:last-child {
+  margin-bottom: 0;
+}
+
+.rich-text-content ul,
+.rich-text-content ol {
+  margin: 0.25em 0;
+  padding-left: 1.25em;
+}
+
+.rich-text-content a {
+  color: #3B82F6;
+  text-decoration: underline;
+}
+
+.rich-text-content strong {
+  font-weight: 600;
+  color: #E5E2E1;
+}

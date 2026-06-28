@@ -1,5 +1,6 @@
 import { deleteTask } from '../../api/tasks';
 import { formatDate } from '../../utils/formatDate';
+import { stripHtml } from '../../utils/richText';
 
 /* ── SVG Action Icons ── */
 const IconEdit = () => (
@@ -83,7 +84,7 @@ const TasksTable = ({ tasks, onEdit, onRefresh }) => {
                 </span>
                 {task.description && (
                   <span className="block truncate" style={{ color: '#4B5563', fontSize: '12px', maxWidth: '240px' }}>
-                    {task.description}
+                    {stripHtml(task.description)}
                   </span>
                 )}
               </td>
